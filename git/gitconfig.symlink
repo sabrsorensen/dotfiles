@@ -1,0 +1,15 @@
+[user]
+	name = Sam Sorensen
+	email = sabrsorensen@gmail.com
+[diff]
+    tool = meld
+	renames = copies
+[difftool "meld"]
+    cmd = meld \"$LOCAL\" \"$REMOTE\"
+[color]
+	ui = true
+[core]
+    whitespace = " trailing-space,space-before-tab"
+[alias]
+    up = !git svn fetch && git svn rebase -l && git push . remotes/trunk:master
+    st = !git svn fetch trunk && git diff ..remotes/git-svn
