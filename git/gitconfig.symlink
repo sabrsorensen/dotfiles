@@ -1,13 +1,13 @@
 [user]
-	name = Sam Sorensen
-	email = sabrsorensen@gmail.com
+    name = Sam Sorensen
+    email = sabrsorensen@gmail.com
 [diff]
     tool = meld
-	renames = copies
+    renames = copies
 [difftool "meld"]
     cmd = meld \"$LOCAL\" \"$REMOTE\"
 [color]
-	ui = true
+    ui = true
 [core]
     whitespace = " trailing-space,space-before-tab"
 [alias]
