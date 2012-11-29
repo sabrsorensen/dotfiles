@@ -12,4 +12,4 @@
     whitespace = " trailing-space,space-before-tab"
 [alias]
     up = !git svn fetch && git svn rebase -l && git push . remotes/trunk:master
-    st = !git svn fetch trunk && git diff ..remotes/git-svn
+    st = !git svn fetch svn && git diff --name-status remotes/trunk
