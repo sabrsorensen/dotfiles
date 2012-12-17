@@ -1,6 +1,3 @@
-[user]
-    name = Sam Sorensen
-    email = sabrsorensen@gmail.com
 [diff]
     tool = meld
     renames = copies
