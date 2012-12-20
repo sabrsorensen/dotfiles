@@ -1,8 +1,6 @@
 [diff]
-    tool = meld
+    external = ~/dotfiles/git/git-scripts/git-meld
     renames = copies
-[difftool "meld"]
-    cmd = meld \"$LOCAL\" \"$REMOTE\"
 [color]
     ui = true
 [core]
