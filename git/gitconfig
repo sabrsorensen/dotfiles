@@ -15,5 +15,14 @@
 
     # Update submodules
     subup = !cd `git rev-parse --show-toplevel` && git submodule foreach git pull origin master
+
+    pu = pull origin
+    stat = status
+    di = diff
+    co = checkout
+    ci = commit
+    dci = !git svn dcommit
+    br = branch
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [push]
     default = upstream
