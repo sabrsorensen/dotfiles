@@ -31,7 +31,7 @@ set     end="%{\033[0m%}" # This is needed at the end... :(
 
 
 setenv GIT_BRANCH_CMD "sh -c 'git branch --no-color 2> /dev/null' | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'"
-set prompt="[${green}%n${white}@${red}%m ${yellow}%~ ${cyan}`$GIT_BRANCH_CMD`${end}]: "
-
+set prompt="%{\e]2;%~@%m\a%}[${green}%n${white}@${red}%m ${yellow}%~ ${cyan}`$GIT_BRANCH_CMD`${end}]: "
+#setenv TITLE "\033]0;${PWD}%~:`echo $HOST | cut -d = -f 2 | cut -d . -f 1`\a"
 # Clean up after ourselves...
 unset red green yellow blue magenta cyan white end
