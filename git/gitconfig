@@ -5,6 +5,8 @@
     renames = copies
 [color]
     ui = true
+[color "diff"]
+    whitespace = red reverse
 [core]
     whitespace = " trailing-space,space-before-tab"
     editor = vim
