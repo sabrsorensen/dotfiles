@@ -1,3 +1,6 @@
 [submodule "vim/vimfiles"]
 	path = vim/vimfiles
 	url = git@github.com:sabrsorensen/vimfiles.git
+[submodule "scripts/to"]
+	path = scripts/to
+	url = https://github.com/resultsreturned/to.git
