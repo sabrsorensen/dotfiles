@@ -4,33 +4,36 @@
     tool = tkdiff
     renames = copies
 [color]
-    ui = true
+    ui = auto
+    interactive = auto
 [color "diff"]
     whitespace = red reverse
 [core]
     whitespace = " trailing-space,space-before-tab"
     editor = vim
+    pager = less -r
 [alias]
     # Pull in and merge updates from SVN trunk
-    up = !git svn fetch && git svn rebase -l && git push . remotes/trunk:master
+    #up = !git svn fetch && git svn rebase -l && git push . remotes/trunk:master
+    up = !git svn fetch && git svn rebase -l remotes/trunk master
 
     # SVN-esque file status
-    st = !git svn fetch svn && git diff --name-status remotes/trunk
+    st = !git svn fetch && git diff --name-status remotes/trunk
 
     # Update submodules
     subup = !cd `git rev-parse --show-toplevel` && git submodule foreach git pull origin master
 
     pu = pull origin
     s = status
-    di = diff
     co = checkout
     ci = commit -p -v
     dci = !git svn dcommit
     br = branch
     lg = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     d = difftool
-    diff = diff --word-diff
+    di = diff --color-words
     # Hurrrrr
     stauts = status
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 [push]
     default = upstream
