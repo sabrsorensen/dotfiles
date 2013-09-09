@@ -71,4 +71,5 @@ function preexec() {
 }
 
 alias ls='ls -la --color=auto'
+alias cp="rsync -avz"
 
