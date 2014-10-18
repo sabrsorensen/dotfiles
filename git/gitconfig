@@ -1,8 +1,6 @@
 [diff]
-    #external = ~/dotfiles/git/git-scripts/git-meld
-    #tool = vimdiff
-    tool = tkdiff
     renames = copies
+    tool = meld
 [color]
     ui = auto
     interactive = auto
@@ -12,15 +10,17 @@
     whitespace = " trailing-space,space-before-tab"
     editor = vim
     pager = less -r
+    gitproxy = gitproxy
 [alias]
-    # Pull in and merge updates from SVN trunk
-    #up = !git svn fetch && git svn rebase -l && git push . remotes/trunk:master
-    up = !git svn fetch && git svn rebase -l remotes/trunk master
+# Pull in and merge updates from SVN trunk
+#up = !git svn fetch && git svn rebase -l && git push . remotes/trunk:master
+    up = !export CURRBRANCH=`git rev-parse --abbrev-ref HEAD` && git svn fetch && git checkout master && git svn rebase -l && git rebase master work && git checkout $CURRBRANCH && git rebase work $CURRBRANCH
+    rbup = !export CURRBRANCH=`git rev-parse --abbrev-ref HEAD` && git svn fetch && git checkout master && git svn rebase -l && git checkout $CURRBRANCH && git rebase --onto master work $CURRBRANCH && git branch -m RB_`echo $CURRBRANCH| sed 's/RB_//'`
 
-    # SVN-esque file status
+# SVN-esque file status
     st = !git svn fetch && git diff --name-status remotes/trunk
 
-    # Update submodules
+# Update submodules
     subup = !cd `git rev-parse --show-toplevel` && git submodule foreach git pull origin master
 
     pu = pull origin
@@ -32,7 +32,7 @@
     lg = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     d = difftool
     di = diff --color-words
-    # Hurrrrr
+# Hurrrrr
     stauts = status
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 [push]
