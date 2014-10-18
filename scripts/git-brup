@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export STARTBRANCH=`git rev-parse --abbrev-ref HEAD`;
+git checkout master;
+git svn fetch;
+git svn rebase -l;
+git rebase master work;
+for i in `git br| grep -vP "master|work|RB_" | sed 's/\*/\ /'`; do 
+    git rebase work $i; 
+done;
+git co $STARTBRANCH
