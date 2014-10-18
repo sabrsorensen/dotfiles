@@ -54,6 +54,7 @@ source ~/.zkbd/xterm-unknown-linux-gnu # may be different - check where zkbd sav
 [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
 [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
 
+## Requires pkgfile and the AUR package command-not-found https://aur.archlinux.org/packages/command-not-found/
 source /usr/share/doc/pkgfile/command-not-found.zsh
 #[[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && exec tmux
