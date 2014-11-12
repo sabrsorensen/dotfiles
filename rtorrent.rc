@@ -53,7 +53,7 @@ method.insert = checkdirs1,simple,"not=\"$equal={d.get_custom1=,d.get_base_path=
 method.insert=movecheck1,simple,"and={checkdirs1=,d.get_complete=,d.get_custom1=}"
 
 # insert a method with the alias 'movedir1'
-# (a series of commands, separated by ';') 
+# (a series of commands, separated by ';')
 # 1) "set path of torrent to equal the value of custom1";
 # 2) "mv -u <current data path> <custom1 path>";
 # 3) "clear custom1", "stop the torrent","resume the torrent"
@@ -104,11 +104,11 @@ encryption = allow_incoming,try_outgoing,enable_retry
 # May be set to "disable" (completely disable DHT), "off" (do not start DHT),
 # "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
 # The default is "off". For DHT to work, a session directory must be defined.
-# 
+#
 dht = auto
 
-# UDP port to use for DHT. 
-# 
+# UDP port to use for DHT.
+#
 dht_port = 64351
 
 # Enable peer exchange (for torrents not marked private)
@@ -121,7 +121,7 @@ system.file_allocate.set = yes
 pieces.sync.always_safe = yes
 
 method.insert = pyro.extended, value|const, 1
-method.insert = pyro.bin_dir, string|const, 
+method.insert = pyro.bin_dir, string|const,
 method.insert = pyro.rc_dialect, string|const|simple, "execute_capture=bash,-c,\"test $1 = 0.8.6 && echo -n 0.8.6 || echo -n 0.8.9\",dialect,$system.client_version="
 method.insert = pyro.rtorrent_rc, string|const|private, "$cat=~/.pyroscope/rtorrent-,\"$pyro.rc_dialect=\",.rc.default"
 import = $pyro.rtorrent_rc=
