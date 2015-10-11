@@ -1,10 +1,10 @@
 # Maximum and minimum number of peers to connect to per torrent.
-min_peers = 40
+min_peers = 5
 max_peers = 100
 
 # Same as above but for seeding completed torrents (-1 = same as downloading)
-min_peers_seed = 10
-max_peers_seed = 50
+min_peers_seed = 1
+max_peers_seed = 100
 
 # Maximum number of simultanious uploads per torrent.
 max_uploads = 6
@@ -13,8 +13,10 @@ max_downloads_global = 6
 #max_open_files = 20
 
 # Global upload and download rate in KiB. "0" for unlimited.
-download_rate = 100
-upload_rate = 512
+download_rate = 4096
+upload_rate = 150
+#download_rate = 0
+#upload_rate = 0
 
 log.open_file = "rtorrent", ~/.rtorrent/logs/rtorrent.log
 
@@ -26,7 +28,7 @@ log.add_output = "debug", "rtorrent"
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
-session = ~/.session/
+session = ~/.rtorrent/session/
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
