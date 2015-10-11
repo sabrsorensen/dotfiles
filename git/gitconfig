@@ -27,7 +27,7 @@
     s = status
     co = checkout
     ci = commit -p -v
-    dci = !git rebase -i && git svn dcommit
+    dci = !git rebase -i --autosquash --onto master work && git svn dcommit && git brup
     br = branch
     lg = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     d = difftool
@@ -35,5 +35,6 @@
 # Hurrrrr
     stauts = status
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    svndiff = diff --no-prefix work..
 [push]
     default = upstream
