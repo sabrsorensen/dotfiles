@@ -8,4 +8,14 @@ git rebase master work;
 for i in `git br| grep -vP "master|work|RB_" | sed 's/\*/\ /'`; do 
     git rebase work $i; 
 done;
+#echo
+#echo "Updating out-for-review branches."
+#for i in `git br| grep -P "^\s*R" | sed 's/\*/\ /'`; do
+#    git rebase master $i;
+#done;
+git tag -f old_work work
+echo
 git co $STARTBRANCH
+echo
+echo "Updating external repositories."
+git avup
