@@ -31,6 +31,7 @@ bindkey -v
 source ~/.git_prompt.zsh
 source ~/.aliases.zsh
 source ~/.functions.zsh
+plugins=(git ssh-agent)
 #prompt="[%n@%m:%~]%#: "
 autoload -U promptinit
 promptinit
