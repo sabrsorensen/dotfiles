@@ -21,7 +21,7 @@
     st = !git svn fetch && git diff --name-status remotes/trunk
 
 # Update submodules
-    subup = !cd `git rev-parse --show-toplevel` && git submodule foreach git pull origin master
+    subup = submodule update --init --recursive
 
     pu = pull origin
     s = status
