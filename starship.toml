@@ -1,0 +1,125 @@
+format = """
+[┬─](bold purple)\
+[\\[](dimmed blue)$username[@](bold bright-white)$hostname[:](bold bright-white)$directory[\\]](dimmed blue)\
+[─](bold purple)\
+$time\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$kubernetes\
+$dotnet\
+$golang\
+$nodejs\
+$python\
+$rust\
+$terraform\
+$memory_usage\
+$jobs\
+$battery\
+$line_break\
+$cmd_duration\
+[╰─⮞ ](bold purple)\
+$character"""
+
+
+[username]
+format = "[$user]($style)"
+show_always = true
+style_user = "bold cyan"
+
+[hostname]
+format = "[$hostname]($style)"
+ssh_only = false
+style = "bold blue"
+
+[directory]
+fish_style_pwd_dir_length = 1
+format = "[$path/]($style)[$read_only]($read_only_style)"
+style = "bold green"
+
+[time]
+disabled = false
+format = "[\\[](dimmed blue)[$time]($style)[\\]](dimmed blue)"
+style = "bright-blue"
+
+[git_branch]
+format = "[\\[](dimmed blue)[$symbol$branch]($style)[\\]](dimmed blue)"
+symbol = " "
+
+[git_status]
+disabled = true
+
+[dotnet]
+symbol = ".NET"
+disabled = true
+
+[memory_usage]
+disabled = true
+format = "[─](bold purple)[\\[$symbol${ram}(|${swap})\\]]($style)"
+symbol = "🐏"
+threshold = -1
+
+[cmd_duration]
+format = "[├](bold purple) command took [$duration]($style)\n"
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[✗](bold red)"
+
+[aws]
+disabled = true
+[cmake]
+disabled = true
+[conda]
+disabled = true
+[crystal]
+disabled = true
+[dart]
+disabled = true
+[elixer]
+disabled = true
+[elm]
+disabled = true
+[erlang]
+disabled = true
+[gcloud]
+disabled = true
+[helm]
+disabled = true
+[hg_branch]
+disabled = true
+[java]
+disabled = true
+[julia]
+disabled = true
+[kotlin]
+disabled = true
+[lua]
+disabled = true
+[nim]
+disabled = true
+[nix_shell]
+disabled = true
+[ocaml]
+disabled = true
+[openstack]
+disabled = true
+[package]
+disabled = true
+[perl]
+disabled = true
+[php]
+disabled = true
+[purescript]
+disabled = true
+[ruby]
+disabled = true
+[singularity]
+disabled = true
+[status]
+disabled = true
+[swift]
+disabled = true
+[zip]
+disabled = true

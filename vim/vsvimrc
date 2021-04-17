@@ -1,0 +1,16 @@
+imap jj <ESC>
+set backspace=indent,start,eol
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+" Use 0 to jump to the beginning of the line
+map 0 ^
+
+set scrolloff=10
