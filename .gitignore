@@ -1,3 +1,4 @@
 # Ignore fish functions unless explicitly added
 fish/functions/*
 fish/fundle/*
+WindowsTerminal/*.backup
