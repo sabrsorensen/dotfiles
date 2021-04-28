@@ -34,11 +34,6 @@ set encoding=utf-8
 " Make certain characters (tab, trailing spaces, wrapped text) be more visible
 set list
 set listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+
-highlight SpecialKey ctermbg=red
-"define BadWhitespace before using in a match
-highlight BadWhitespace ctermbg=red guibg=darkred
-" Check for extra whitespace
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,vimrc match BadWhitespace /\s\+$/
 
 " Enable highlighting of the current line
 set cursorline
