@@ -1,0 +1,119 @@
+imap jj <ESC>
+set backspace=indent,start,eol
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set number
+set scrolloff=10
+
+" Use 0 to jump to the beginning of the line
+map 0 ^
+
+set nocompatible
+filetype off
+set smartindent " !VsVim
+set smarttab " !VsVim
+set cindent " !VsVim
+set showmatch " !VsVim
+set ruler " !VsVim
+syntax on " !VsVim
+" Set <F4> to toggle pastemode
+set pastetoggle=<F4>
+" Set <F5> to toggle line numbers
+nnoremap <F5> :set nonumber!<CR>
+set splitbelow
+set splitright
+set encoding=utf-8
+
+" Make certain characters (tab, trailing spaces, wrapped text) be more visible
+set list
+set listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+
+highlight SpecialKey ctermbg=red
+"define BadWhitespace before using in a match
+highlight BadWhitespace ctermbg=red guibg=darkred
+" Check for extra whitespace
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,vimrc match BadWhitespace /\s\+$/
+
+" Enable highlighting of the current line
+set cursorline
+set cursorcolumn
+" Show command mode on the last line
+set showcmd
+
+" Enhanced command-line completion
+set wildmenu
+" Tab-complete to longest common match, second press will list matches
+set wildmode=list:longest,full
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*.hi
+
+" When a new bracket is inserted, briefly jump to the matching bracket
+set showmatch
+" Display matching bracket for 0.2 seconds
+set matchtime=2
+
+" Scroll when the cursor is close to the bottom line/last column
+if !&scrolloff
+    set scrolloff=10
+endif
+if !&sidescrolloff
+    set sidescrolloff=10
+endif
+
+" Display as much of the last line as possible
+set display+=lastline
+
+" Read the file when it changes elsewhere
+set autoread
+set laststatus=2
+
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+      return 'PASTE MODE  '
+    en
+    return ''
+endfunction
+
+if has('autocmd')
+  " Enable detection of filetypes, loading plugins based on filetype, and
+  " specific indentation rules based on type
+  filetype plugin indent on
+endif
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+  \| endif
+
+call plug#begin()
+Plug 'haishanh/night-owl.vim'
+Plug 'dag/vim-fish'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+call plug#end()
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+colorscheme night-owl
+
+" To enable the lightline theme
+let g:lightline = { 'colorscheme': 'nightowl' }

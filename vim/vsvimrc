@@ -9,8 +9,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+set number
+set scrolloff=10
 
 " Use 0 to jump to the beginning of the line
 map 0 ^
-
-set scrolloff=10
