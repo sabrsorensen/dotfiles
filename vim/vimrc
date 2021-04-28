@@ -1,3 +1,6 @@
+"""""""""""""""""""""""""
+" START VsVim compatible
+
 imap jj <ESC>
 set backspace=indent,start,eol
 set incsearch
@@ -15,14 +18,17 @@ set scrolloff=10
 " Use 0 to jump to the beginning of the line
 map 0 ^
 
+" END VsVim compatible
+"""""""""""""""""""""""""
+
 set nocompatible
 filetype off
-set smartindent " !VsVim
-set smarttab " !VsVim
-set cindent " !VsVim
-set showmatch " !VsVim
-set ruler " !VsVim
-syntax on " !VsVim
+set smartindent
+set smarttab
+set cindent
+set showmatch
+set ruler
+syntax on
 " Set <F4> to toggle pastemode
 set pastetoggle=<F4>
 " Set <F5> to toggle line numbers
