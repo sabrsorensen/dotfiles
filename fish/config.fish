@@ -10,6 +10,8 @@ if status --is-interactive
 end
 
 fundle init
-source ~/.config/fish/gpg.fish
+if status --is-interactive
+    source ~/.config/fish/gpg.fish
+end
 
 starship init fish | source

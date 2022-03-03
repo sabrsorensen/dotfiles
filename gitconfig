@@ -1,0 +1,21 @@
+[core]
+    editor = vim
+    pager = less -r
+    whitespace = " trailing-space,space-before-tab"
+[color]
+    ui = auto
+    interactive = auto
+[color "diff"]
+    whitespace = red reverse
+
+[alias]
+    s = status
+    co = checkout
+    ci = commit -p -v
+    br = branch
+    lg = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    di = diff --color-words
+    # Hurrrrr
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[init]
+    defaultBranch = main
