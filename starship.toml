@@ -52,7 +52,7 @@ disabled = true
 
 [dotnet]
 symbol = ".NET"
-disabled = true
+disabled = false
 
 [memory_usage]
 disabled = true
@@ -118,7 +118,7 @@ disabled = true
 [singularity]
 disabled = true
 [status]
-disabled = true
+disabled = false
 [swift]
 disabled = true
 [zig]
